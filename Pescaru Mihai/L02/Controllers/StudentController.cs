@@ -26,5 +26,31 @@ namespace L02.Controllers
             return StudentRepo.GetStudents();
         }
 
+         [HttpGet("{id}")]
+        public Student GetStudentOf(int id){
+            return StudentRepo.getStudentOfId(id);
+        }
+
+        [HttpGet("{id}/{name}")]
+        public void addStudentGet(int id, string name){
+            Student student = new Student(id,name);
+            StudentRepo.addStudent(student);
+        }
+
+        [HttpPost("add")]
+        public void addStudent(Student student){
+            StudentRepo.addStudent(student);
+        }
+
+        [HttpPut("update")]
+        public void updateStudent(Student student){
+            StudentRepo.updateStudent(student);
+        }
+
+        [HttpDelete("delete/{id}")]
+        public void deleteStudent(int id){
+            StudentRepo.deleteStudent(id);
+        }
+
     }
 }

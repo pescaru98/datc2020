@@ -8,16 +8,33 @@ namespace L02.Repositories{
 
         public static List<Student> students;
 
-        public static IEnumerable<Student> GetStudents(){
-            students = new List<Student>();
+        static StudentRepo(){
+             students = new List<Student>();
             students.Add(student1);
             students.Add(student2);
+        }
+        public static IEnumerable<Student> GetStudents(){
             return students.ToArray();
         }
 
-        // public static Student getStudentOfId(int id){
-        //     return students.Find();
-        // }
+        public static Student getStudentOfId(int id){
+            return students.Find(x => x.id == id);
+        }
+
+        public static void addStudent(Student student){
+            students.Add(student);
+        }
+
+        public static void updateStudent(Student student){
+            Student student1 = students.Find(x => x.id == student.id);
+            student1.name = student.name;
+        }
+
+        public static void deleteStudent(int id){
+            Student student = students.Find(x=>x.id == id);
+            if(student != null && student.id > 0)
+                students.Remove(student);
+        }
 
     }
 }
