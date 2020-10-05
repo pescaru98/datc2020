@@ -3,12 +3,16 @@ using System;
 using System.Collections.Generic;  
 namespace L02.Repositories{
     public static class StudentRepo{
-        public static Student student1 = new Student(1,"Mihai");
-        public static Student student2 = new Student(2,"Dan");
+        public static Student student1 = new Student(1,"Mihai","AC");
+        public static Student student2 = new Student(2,"Dan","AC");
 
         public static List<Student> students;
 
         static StudentRepo(){
+            init();
+        }
+
+        public static void init(){
              students = new List<Student>();
             students.Add(student1);
             students.Add(student2);
@@ -28,6 +32,7 @@ namespace L02.Repositories{
         public static void updateStudent(Student student){
             Student student1 = students.Find(x => x.id == student.id);
             student1.name = student.name;
+            student1.faculty = student.faculty;
         }
 
         public static void deleteStudent(int id){

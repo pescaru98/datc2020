@@ -31,9 +31,9 @@ namespace L02.Controllers
             return StudentRepo.getStudentOfId(id);
         }
 
-        [HttpGet("{id}/{name}")]
-        public void addStudentGet(int id, string name){
-            Student student = new Student(id,name);
+        [HttpGet("{id}/{name}/{faculty}")]
+        public void addStudentGet(int id, string name,string faculty){
+            Student student = new Student(id,name,faculty);
             StudentRepo.addStudent(student);
         }
 
