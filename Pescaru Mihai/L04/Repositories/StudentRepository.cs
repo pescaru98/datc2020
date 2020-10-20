@@ -50,9 +50,11 @@ namespace L02.Repositories
             return students;
         }
 
-        void IStudentRepository.CreateStudent(Student student)
+        async Task IStudentRepository.CreateStudent(Student student)
         {
-            throw new NotImplementedException();
+            var insertOperation = TableOperation.Insert(student);
+
+            await _studentsTable.ExecuteAsync(insertOperation);
         }
     }
 }

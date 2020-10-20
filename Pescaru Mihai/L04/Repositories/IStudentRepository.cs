@@ -7,5 +7,5 @@ public interface IStudentRepository
 {
     public Task<List<Student>> GetAllStudents();
 
-    void CreateStudent(Student student);
+    Task CreateStudent(Student student);
 } 

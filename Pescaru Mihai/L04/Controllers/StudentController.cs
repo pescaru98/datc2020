@@ -31,6 +31,18 @@ namespace L02.Controllers
             return await _studentRepository.GetAllStudents();
         }
 
+        [HttpPost]
+        public async Task CreateStudent([FromBody] Student student)
+        {
+            try
+            {
+               await _studentRepository.CreateStudent(student);
+            }catch(System.Exception)
+            {
+                throw;
+            }
+        }
+
 /*         [HttpGet("{id}")]
         public Student GetStudentOf(int id){
             return StudentRepo.getStudentOfId(id);
