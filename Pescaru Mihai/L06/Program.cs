@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace L05
+namespace L06
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World at " + DateTime.Now.ToString());
-
+            Console.WriteLine("Hello World!");
         }
     }
 }
