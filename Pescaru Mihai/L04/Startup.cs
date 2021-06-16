@@ -27,6 +27,7 @@ namespace L02
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<IMetricsRepository, MetricsRepository>();
             services.AddControllers();
         }
 
